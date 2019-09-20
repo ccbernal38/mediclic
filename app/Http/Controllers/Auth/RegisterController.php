@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Persona;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -49,7 +50,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'primer_nombre' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -63,10 +64,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $persona = Persona::create([
+            'tipo_documento' => $data['tipo_documento'],
+            'no_documento' => $data['no_documento'],
+            'primer_nombre' => $data['primer_nombre'],
+            'segundo_nombre' => $data['primer_nombre'],
+            'primer_apellido' => $data['primer_apellido'],
+            'segundo_apellido' => $data['segundo_apellido'],
+            'correo' => $data['email'],
+            'sexo' => $data['sexo'],
+            'terminos' => $data['terminos'],
+            'fecha_nacimiento' => $data['fecha_nacimiento'],
+        ]);
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'persona_id' =>$persona->id,
+            'rol_id' => 2
         ]);
     }
 }

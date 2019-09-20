@@ -14,8 +14,10 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
-            $table->foreign('id')->references('id')->on('personas')->onDelete('cascade');
+            $table->integerIncrements('id')->unsigned();
+
+            $table->integer('persona_id')->unsigned();
+            $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
