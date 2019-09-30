@@ -18,8 +18,17 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(BootstrapVue);
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('producto-registro-component', require('./components/ProductoRegistroComponent.vue').default);
+Vue.component('producto-index-component', require('./components/ProductoIndexComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

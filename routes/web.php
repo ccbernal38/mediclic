@@ -22,3 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //-----------------------------------------Usuario-----------------------------------------------------
 
 Route::get('usuario/register','UserController@create')->name('');
+
+//-----------------------------------------Producto----------------------------------------------------
+
+Route::resource('producto', 'ProductoController');
+Route::get('/getAllProductos', 'ProductoController@getAll');
