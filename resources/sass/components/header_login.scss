@@ -1,0 +1,55 @@
+$green-color: #abbe2e;
+
+.img-header{
+    background-image: url("/img/login/header_login.png");
+    height: 155px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 1px;
+}
+.container-mediclic{
+    width: 100%;
+    padding: 3% 5% 3% 5%;
+}
+
+.col-padding-header{
+    padding: 0;
+    margin: 4% 0% 5% 0%;
+}
+
+.btn-forgot{
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-login > .btn-sm{
+    padding: 0.3rem 0.5rem;
+    background-color: $green-color;
+    border-color: $green-color;
+}
+
+
+.padding-input-login > div{
+    padding: 0% 3px 0% 3px;
+}
+
+#email::-webkit-input-placeholder{
+    font-weight: bold;
+}
+
+#email::-moz-placeholder{
+    font-weight: bold;
+}
+
+#password::-webkit-input-placeholder{
+    font-weight: bold;
+}
+
+#password::-moz-placeholder{
+    font-weight: bold;
+}
+
+.img-forgot{
+    width: 7%;
+}

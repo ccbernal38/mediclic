@@ -29,6 +29,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('producto-registro-component', require('./components/ProductoRegistroComponent.vue').default);
 Vue.component('producto-index-component', require('./components/ProductoIndexComponent.vue').default);
+Vue.component('login-component', require('./components/LoginComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
