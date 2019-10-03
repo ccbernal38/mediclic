@@ -1,11 +1,14 @@
 $green-color: #abbe2e;
+$orange-color: #d27827;
+$abano-color: #f3edd1;
+$darkblue-color: #37595a;
+$red-color: #bc2128;
 
 .img-header{
     background-image: url("/img/login/header_login.png");
     height: 155px;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0px 0px 1px;
 }
 .container-mediclic{
     width: 100%;
@@ -24,7 +27,7 @@ $green-color: #abbe2e;
 }
 
 .btn-login > .btn-sm{
-    padding: 0.3rem 0.5rem;
+    padding: 0.25rem 0.5rem;
     background-color: $green-color;
     border-color: $green-color;
 }
@@ -52,4 +55,57 @@ $green-color: #abbe2e;
 
 .img-forgot{
     width: 7%;
+}
+
+.btn-forgot:hover{
+    color: $green-color;
+    text-decoration: none;
+}
+
+.d-block{
+    margin: 0;
+}
+
+.img-inicio{
+    background-image: url("/img/login/doctora_inicio.png");
+    height: 634px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.color-footer > div{
+    height: 10px;
+}
+
+.color-footer-1{
+    background-color: $green-color;
+}
+
+.color-footer-2{
+    background-color: $orange-color;
+}
+
+.color-footer-3{
+    background-color: $abano-color;
+}
+
+.color-footer-4{
+    background-color: $darkblue-color;
+}
+
+.color-footer-5{
+    background-color: $red-color;
+}
+
+.img-logo-inicio{
+    background-image: url("/img/login/logo_inicio.png");
+    height: 170px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.h1-registro{
+    font-weight: bold;
+    font-size: 2.4rem;
+    padding-top: 6%;
 }

@@ -21,8 +21,13 @@ body{
     font-family: 'varelaround';
     background-color: #FFFFFF;
     counter-reset: my-sec-counter;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     //margin: 0px 2px 0px 2px;
+}
+
+h1{
+    font-family: 'varelaround';
+    background-color: #FFFFFF;
 }
 
 ::-webkit-input-placeholder { font-size: 0.9rem; }
