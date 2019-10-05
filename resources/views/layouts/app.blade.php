@@ -14,13 +14,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('js')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -77,8 +81,7 @@
             </nav>
         @endif
 
-
-            @yield('content')
+        @yield('content')
     </div>
 </body>
 </html>
