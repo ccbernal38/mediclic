@@ -64,16 +64,12 @@
     <!--Imagen de inicio y formulario de registro-->
     <div class="row">
         <!--Imagen de inicio-->
-        <div class="col-md-5 img-inicio"></div>
+        <div class="col-md-6 img-inicio"></div>
 
         <!--Formulario de registro paciente-->
-        <div class="col-md-7">
+        <div class="col-md-6">
             <div class="row">
-                <div class="offset-3 col-md-6">
-                    <div class="row">
-                        <div class="col-md-10 offset-1 img-logo-inicio"></div>
-                    </div>
-                </div>
+                <div class="offset-3 col-md-6 img-logo-inicio"></div>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -84,22 +80,16 @@
             <!--Formulario de registro inicial-->
             <div class="row padding-row-register">
                 <div class="col-md-6">
-                    <label for="name" class="col-form-label text-md-right">Primer Nombre</label>
-                    <input id="primer_nombre" type="text" class="form-mediclic @error('primer_nombre') is-invalid @enderror" name="primer_nombre" value="{{ old('primer_nombre') }}" required autocomplete="primer_nombre" autofocus>
-                    <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                    <div class="form-group position-relative">
+                        <label for="name" class="text-md-right label-register">Primer Nombre</label>
+                        <input id="primer_nombre" type="text" class="form-mediclic @error('primer_nombre') is-invalid @enderror" name="primer_nombre" value="{{ old('primer_nombre') }}" required autocomplete="primer_nombre" autofocus>
+                        <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                    </div>
                     @error('primer_nombre')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-
-                    <div class="form-group position-relative">
-                        <label for="example-mail">Email address</label>
-                        <input type="email" class="form-mediclic" id="example-mail" placeholder="Enter email">
-                        <span class="form-clear d-none"><i class="material-icons">clear</i></span>
-                    </div>
-
-
                 </div>
                 <div class="col-md-6">
                     <label for="name" class="col-form-label text-md-right">Segundo Nombre</label>

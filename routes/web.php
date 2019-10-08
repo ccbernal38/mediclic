@@ -26,4 +26,16 @@ Route::get('usuario/register','UserController@create')->name('');
 //-----------------------------------------Producto----------------------------------------------------
 
 Route::resource('producto', 'ProductoController');
+
 Route::get('/getAllProductos', 'ProductoController@getAll');
+
+//Route::get('ip',function() {
+////   return $_SERVER['REMOTE_ADDR'];
+////    $ipAddress=$_SERVER['REMOTE_ADDR'];
+////    $arp=`arp -a $ipAddress`;
+////    $lines=explode("\n", $arp);
+////    return $lines;
+////    return $_SERVER['HTTP_X_FORWARDED_FOR'];
+//    return Request::getClientIp();
+//});
+

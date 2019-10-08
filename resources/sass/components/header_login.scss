@@ -68,7 +68,7 @@ $red-color: #bc2128;
 
 .img-inicio{
     background-image: url("/img/login/doctora_inicio.png");
-    height: 634px;
+    height: 750px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -99,7 +99,7 @@ $red-color: #bc2128;
 
 .img-logo-inicio{
     background-image: url("/img/login/logo_inicio.png");
-    height: 135px;
+    height: 140px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -111,7 +111,7 @@ $red-color: #bc2128;
 }
 
 .padding-row-register{
-    padding-top: 1%;
+    padding-top: 2%;
 }
 
 .form-mediclic{
@@ -157,4 +157,8 @@ $red-color: #bc2128;
 .form-clear .material-icons {
     font-size: 16px;
     font-weight: 500;
+}
+
+.label-register{
+    margin: 0;
 }
