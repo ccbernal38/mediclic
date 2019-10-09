@@ -28,7 +28,7 @@
 </head>
 <body>
     <div id="app">
-        @if(!request()->is('login'))
+        @if(request()->is('login'))
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('login') }}">

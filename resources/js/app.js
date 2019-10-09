@@ -30,6 +30,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('producto-registro-component', require('./components/ProductoRegistroComponent.vue').default);
 Vue.component('producto-index-component', require('./components/ProductoIndexComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
+Vue.component('header-home-component', require('./components/HeaderComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -39,4 +40,7 @@ Vue.component('login-component', require('./components/LoginComponent.vue').defa
 
 const app = new Vue({
     el: '#app',
+    mounted(){
+
+    }
 });

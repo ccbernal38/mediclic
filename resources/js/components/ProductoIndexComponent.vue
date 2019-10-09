@@ -1,4 +1,5 @@
 <template>
+    <div class="container-fluid">
     <div class="row">
         <div class="container">
             <table class="table table-striped">
@@ -28,6 +29,7 @@
                 </tbody>
             </table>
         </div>
+    </div>
     </div>
 </template>
 
