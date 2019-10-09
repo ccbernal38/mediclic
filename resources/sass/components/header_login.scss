@@ -116,7 +116,7 @@ $red-color: #bc2128;
 
 .form-mediclic{
     width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
+    height: calc(1em + 0.75rem + 2px);
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
@@ -161,4 +161,18 @@ $red-color: #bc2128;
 
 .label-register{
     margin: 0;
+}
+
+.padding-register1{
+    padding: 1% 2% 1% 2% !important;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
 }

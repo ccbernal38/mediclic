@@ -10757,7 +10757,7 @@ a.text-dark:focus {
 
 .form-mediclic {
   width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
+  height: calc(1em + 0.75rem + 2px);
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
@@ -10802,6 +10802,20 @@ a.text-dark:focus {
 
 .label-register {
   margin: 0;
+}
+
+.padding-register1 {
+  padding: 1% 2% 1% 2% !important;
+}
+
+label {
+  display: block;
+  font: 1rem "Fira Sans", sans-serif;
+}
+
+input,
+label {
+  margin: 0.4rem 0;
 }
 
 @font-face {

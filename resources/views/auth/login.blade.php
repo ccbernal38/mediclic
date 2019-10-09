@@ -2,6 +2,7 @@
 
 @section('js')
     <script src="{{asset('/js/forms.js')}}" defer></script>
+
 @endsection
 
 @section('content')
@@ -67,7 +68,7 @@
         <div class="col-md-6 img-inicio"></div>
 
         <!--Formulario de registro paciente-->
-        <div class="col-md-6">
+        <div class="col-md-6 padding-register1">
             <div class="row">
                 <div class="offset-3 col-md-6 img-logo-inicio"></div>
             </div>
@@ -92,13 +93,62 @@
                     @enderror
                 </div>
                 <div class="col-md-6">
-                    <label for="name" class="col-form-label text-md-right">Segundo Nombre</label>
-                    <input id="segundo_nombre" type="text" class="form-control @error('segundo_nombre') is-invalid @enderror" name="segundo_nombre" value="{{ old('segundo_nombre') }}" required autocomplete="segundo_nombre" autofocus>
-
+                    <div class="form-group position-relative">
+                        <label for="name" class="text-md-right label-register">Segundo Nombre</label>
+                        <input id="segundo_nombre" type="text" class="form-mediclic @error('segundo_nombre') is-invalid @enderror" name="segundo_nombre" value="{{ old('segundo_nombre') }}" required autocomplete="segundo_nombre" autofocus>
+                        <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                    </div>
                     @error('segundo_nombre')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label for="name" class="text-md-right label-register">Primer Apellido</label>
+                        <input id="primer_apellido" type="text" class="form-mediclic @error('primer_apellido') is-invalid @enderror" name="primer_apellido" value="{{ old('primer_apellido') }}" required autocomplete="primer_apellido" autofocus>
+                        <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                    </div>
+                    @error('primer_apellido')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label for="name" class="text-md-right label-register">Segundo Apellido</label>
+                        <input id="segundo_apellido" type="text" class="form-mediclic @error('segundo_apellido') is-invalid @enderror" name="segundo_apellido" value="{{ old('segundo_apellido') }}" required autocomplete="segundo_apellido" autofocus>
+                        <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label for="email" class="text-md-right label-register">{{ __('E-Mail Address') }}</label>
+                        <input id="email-register" type="email" class="form-mediclic @error('email-register') is-invalid @enderror" name="email-register" value="{{ old('email-register') }}" required autocomplete="email-register">
+                        <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                    </div>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label for="name" class="text-md-right label-register">Fecha de nacimiento</label>
+                        <input id="fecha_nacimiento" type="text" class="form-mediclic datepicker @error('fecha_nacimiento') is-invalid @enderror" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required autocomplete="fecha_nacimiento" autofocus>
+                        <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                    </div>
+                    @error('fecha_nacimiento')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                     @enderror
                 </div>
             </div>
