@@ -2,7 +2,6 @@
 
 @section('js')
     <script src="{{asset('/js/forms.js')}}" defer></script>
-
 @endsection
 
 @section('content')
@@ -77,12 +76,11 @@
                     <h1 class="h1-registro">Registro</h1>
                 </div>
             </div>
-
             <!--Formulario de registro inicial-->
             <div class="row padding-row-register">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label for="name" class="text-md-right label-register">Primer Nombre</label>
+                        <label for="name" class=" label-register">Primer Nombre</label>
                         <input id="primer_nombre" type="text" class="form-mediclic @error('primer_nombre') is-invalid @enderror" name="primer_nombre" value="{{ old('primer_nombre') }}" required autocomplete="primer_nombre" autofocus>
                         <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                     </div>
@@ -94,7 +92,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label for="name" class="text-md-right label-register">Segundo Nombre</label>
+                        <label for="name" class=" label-register">Segundo Nombre</label>
                         <input id="segundo_nombre" type="text" class="form-mediclic @error('segundo_nombre') is-invalid @enderror" name="segundo_nombre" value="{{ old('segundo_nombre') }}" required autocomplete="segundo_nombre" autofocus>
                         <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                     </div>
@@ -108,7 +106,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label for="name" class="text-md-right label-register">Primer Apellido</label>
+                        <label for="name" class=" label-register">Primer Apellido</label>
                         <input id="primer_apellido" type="text" class="form-mediclic @error('primer_apellido') is-invalid @enderror" name="primer_apellido" value="{{ old('primer_apellido') }}" required autocomplete="primer_apellido" autofocus>
                         <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                     </div>
@@ -120,7 +118,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label for="name" class="text-md-right label-register">Segundo Apellido</label>
+                        <label for="name" class=" label-register">Segundo Apellido</label>
                         <input id="segundo_apellido" type="text" class="form-mediclic @error('segundo_apellido') is-invalid @enderror" name="segundo_apellido" value="{{ old('segundo_apellido') }}" required autocomplete="segundo_apellido" autofocus>
                         <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                     </div>
@@ -129,7 +127,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label for="email" class="text-md-right label-register">{{ __('E-Mail Address') }}</label>
+                        <label for="email" class="label-register">{{ __('E-Mail Address') }}</label>
                         <input id="email-register" type="email" class="form-mediclic @error('email-register') is-invalid @enderror" name="email-register" value="{{ old('email-register') }}" required autocomplete="email-register">
                         <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                     </div>
@@ -141,8 +139,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label for="name" class="text-md-right label-register">Fecha de nacimiento</label>
-                        <input id="fecha_nacimiento" type="text" class="form-mediclic datepicker @error('fecha_nacimiento') is-invalid @enderror" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required autocomplete="fecha_nacimiento" autofocus>
+                        <label for="name" class="label-register">Fecha de nacimiento</label>
+                        <input id="fecha_nacimiento" type="text" class="form-mediclic datepicker @error('fecha_nacimiento') is-invalid @enderror" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required autocomplete="off" autofocus>
                         <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                     </div>
                     @error('fecha_nacimiento')
@@ -150,6 +148,41 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label for="name" class="label-register padd-lbl-sexo">Sexo</label><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input id="f" type="radio" class="custom-control-input @error('sexo') is-invalid @enderror" name="sexo" value="F" required {{ 'F' == old('sexo') ? "checked":"" }}>
+                            <label class="custom-control-label" for="f">F</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input id="m" type="radio" class="custom-control-input @error('sexo') is-invalid @enderror" name="sexo" value="M" required {{ 'M' == old('sexo') ? "checked":"" }}>
+                            <label class="custom-control-label" for="m">M</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label for="password" class="label-register">{{ __('Password') }}</label>
+                        <input id="passwordR" type="password" class="form-mediclic @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                        <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row pad-row-terminos">
+                <div class="col-md-12">
+                    <div class="custom-control custom-radio custom-control-inline" style="width: 100%">
+                        <input id="terminos" type="radio" class="custom-control-input @error('terminos') is-invalid @enderror" name="terminos" value="1" required {{ '1' == old('terminos') ? "checked":"" }}>
+                        <label class="custom-control-label conf-lbl-terminos" for="terminos">Acepto terminos y condiciones <a href="" style="color: #abbe2e">(ver)</a></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <p class="conf-text-terminos">Al hacer clic en "Acepto terminos y condiciones", aceptas las condiciones y confirmas que leiste nuestra política de datos, incluido el uso de cookies</p>
                 </div>
             </div>
         </div>

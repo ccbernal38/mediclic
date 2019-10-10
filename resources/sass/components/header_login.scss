@@ -167,12 +167,27 @@ $red-color: #bc2128;
     padding: 1% 2% 1% 2% !important;
 }
 
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+.datepicker{
+    border-radius: 0;
 }
 
-input,
-label {
-    margin: .4rem 0;
+.padd-lbl-sexo{
+    padding: 0% 0% 2% 0%;
+}
+
+.conf-lbl-terminos{
+    font-size: 0.7rem;
+    display: table-cell;
+    padding: 6px 0px 6px 0px;
+    width: 100%;
+    vertical-align: middle !important;
+}
+
+.conf-text-terminos{
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+
+.pad-row-terminos{
+    padding-top: 4%;
 }
