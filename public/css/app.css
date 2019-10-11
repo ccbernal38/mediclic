@@ -10830,7 +10830,33 @@ a.text-dark:focus {
 }
 
 .pad-row-terminos {
-  padding-top: 4%;
+  padding-top: 2%;
+}
+
+.btn-register1 {
+  color: #fff !important;
+  background-color: #37595a !important;
+  border-color: #37595a !important;
+}
+
+@media (min-width: 1441px) and (max-width: 1680px) {
+  .img-logo-inicio {
+    height: 180px;
+  }
+
+  .img-inicio {
+    height: 1016px;
+  }
+}
+
+@media (min-width: 1681px) and (max-width: 1920px) {
+  .img-logo-inicio {
+    height: 160px;
+  }
+
+  .img-inicio {
+    height: 890px;
+  }
 }
 
 @font-face {

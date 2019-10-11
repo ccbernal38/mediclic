@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a584c86-bab8-4623-a222-b3d7da7371a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-datepicker.standalone.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-datepicker3.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/components/header_login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/header_login.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,28 +23,31 @@
     <splitter split-orientation="vertical" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/resources/sass/components/header_login.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
+                <state relative-caret-position="179">
+                  <caret line="198" column="45" selection-start-line="198" selection-start-column="45" selection-end-line="198" selection-end-column="45" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="155">
-                  <caret line="178" column="155" selection-start-line="178" selection-start-column="155" selection-end-line="178" selection-end-column="155" />
+                <state relative-caret-position="289">
+                  <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
                   <folding>
-                    <element signature="e#2897#3003#0#HTML" />
-                    <element signature="e#3016#3173#0#HTML" />
-                    <element signature="e#3236#4900#0#HTML" />
-                    <element signature="e#4913#6362#0#HTML" />
-                    <element signature="e#6375#8051#0#HTML" />
-                    <element signature="e#9812#9831#0#HTML" expanded="true" />
-                    <element signature="e#10191#10213#0#HTML" expanded="true" />
+                    <element signature="e#288#2604#0#HTML" />
+                    <element signature="e#3354#5018#0#HTML" />
+                    <element signature="e#5031#6480#0#HTML" />
+                    <element signature="e#6493#8167#0#HTML" />
+                    <element signature="e#8180#9777#0#HTML" />
+                    <element signature="e#9790#10419#0#HTML" />
+                    <element signature="e#9948#9967#0#HTML" expanded="true" />
+                    <element signature="e#10310#10332#0#HTML" expanded="true" />
+                    <element signature="e#10432#10736#0#HTML" />
+                    <element signature="e#10749#10983#0#HTML" />
                   </folding>
                 </state>
               </provider>
@@ -66,7 +65,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/config/app.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
+                <state relative-caret-position="1615">
                   <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
                 </state>
               </provider>
@@ -75,7 +74,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-422">
+                <state relative-caret-position="408">
                   <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
                 </state>
               </provider>
@@ -88,8 +87,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="167" column="215" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="215" />
+                <state relative-caret-position="204">
+                  <caret line="12" column="24" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="73" />
                 </state>
               </provider>
             </entry>
@@ -130,6 +129,9 @@
       <find>aria-</find>
       <find>datepi</find>
       <find>text-md-right</find>
+      <find>inicio</find>
+      <find>btn-reg</find>
+      <find>img-lo</find>
     </findStrings>
     <replaceStrings>
       <replace>no</replace>
@@ -165,8 +167,8 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/public/js/forms.js" />
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/components/header_login.scss" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
       </list>
     </option>
   </component>
@@ -411,7 +413,8 @@
       <workItem from="1570284174182" duration="5794000" />
       <workItem from="1570456553553" duration="20609000" />
       <workItem from="1570631861961" duration="15463000" />
-      <workItem from="1570714819474" duration="17536000" />
+      <workItem from="1570714819474" duration="17964000" />
+      <workItem from="1570802129027" duration="8989000" />
     </task>
     <task id="LOCAL-00001" summary="Creación de migraciones, modelos y controladores autenticación y roles">
       <created>1568854230093</created>
@@ -469,11 +472,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570662166620</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Inicio primer formulario de registro v3.2">
+      <created>1570750329593</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1570750329593</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198782000" />
+    <option name="totallyTimeSpent" value="208199000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -584,7 +594,8 @@
     <MESSAGE value="Inicio primer formulario de registro v2" />
     <MESSAGE value="Inicio primer formulario de registro v3" />
     <MESSAGE value="Inicio primer formulario de registro v3.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicio primer formulario de registro v3.1" />
+    <MESSAGE value="Inicio primer formulario de registro v3.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio primer formulario de registro v3.2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/Rol.php">
@@ -855,23 +866,16 @@
     <entry file="file://$PROJECT_DIR$/public/js/bootstrap-datepicker.es.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="167" column="215" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="215" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="1615">
           <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422">
+        <state relative-caret-position="408">
           <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
         </state>
       </provider>
@@ -883,26 +887,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/sass/components/header_login.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="178" column="155" selection-start-line="178" selection-start-column="155" selection-end-line="178" selection-end-column="155" />
-          <folding>
-            <element signature="e#2897#3003#0#HTML" />
-            <element signature="e#3016#3173#0#HTML" />
-            <element signature="e#3236#4900#0#HTML" />
-            <element signature="e#4913#6362#0#HTML" />
-            <element signature="e#6375#8051#0#HTML" />
-            <element signature="e#9812#9831#0#HTML" expanded="true" />
-            <element signature="e#10191#10213#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="179">
+          <caret line="198" column="45" selection-start-line="198" selection-start-column="45" selection-end-line="198" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/components/header_login.scss">
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
+          <folding>
+            <element signature="e#288#2604#0#HTML" />
+            <element signature="e#3354#5018#0#HTML" />
+            <element signature="e#5031#6480#0#HTML" />
+            <element signature="e#6493#8167#0#HTML" />
+            <element signature="e#8180#9777#0#HTML" />
+            <element signature="e#9790#10419#0#HTML" />
+            <element signature="e#9948#9967#0#HTML" expanded="true" />
+            <element signature="e#10310#10332#0#HTML" expanded="true" />
+            <element signature="e#10432#10736#0#HTML" />
+            <element signature="e#10749#10983#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>
