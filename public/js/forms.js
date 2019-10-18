@@ -1,7 +1,15 @@
 $(document).ready(function () {
 
-// Init the script on the pages you need
+    // Init the script on the pages you need
     bootstrapClearButton();
+
+    //Datepicker
+    $('.datepicker').datepicker({
+        format: "dd-mm-yyyy",
+        language: "es",
+        autoclose: true
+    });
+
 });
 
 /* Plugin to integrate in your js. By djibe, MIT license */

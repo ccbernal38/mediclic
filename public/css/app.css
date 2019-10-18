@@ -10757,7 +10757,7 @@ a.text-dark:focus {
 
 .form-mediclic {
   width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
+  height: calc(1em + 0.75rem + 2px);
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
@@ -10802,6 +10802,35 @@ a.text-dark:focus {
 
 .label-register {
   margin: 0;
+}
+
+.padding-register1 {
+  padding: 1% 2% 1% 2% !important;
+}
+
+.datepicker {
+  border-radius: 0;
+}
+
+.padd-lbl-sexo {
+  padding: 0% 0% 2% 0%;
+}
+
+.conf-lbl-terminos {
+  font-size: 0.7rem;
+  display: table-cell;
+  padding: 6px 0px 6px 0px;
+  width: 100%;
+  vertical-align: middle !important;
+}
+
+.conf-text-terminos {
+  font-size: 0.6rem;
+  font-weight: bold;
+}
+
+.pad-row-terminos {
+  padding-top: 4%;
 }
 
 @font-face {

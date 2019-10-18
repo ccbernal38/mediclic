@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Primer Apellido</label>
+                            <label for="name" class="text-md-right label-register">Primer Apellido</label>
 
                             <div class="col-md-6">
                                 <input id="primer_apellido" type="text" class="form-control @error('primer_apellido') is-invalid @enderror" name="primer_apellido" value="{{ old('primer_apellido') }}" required autocomplete="primer_apellido" autofocus>

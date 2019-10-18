@@ -26,6 +26,7 @@ Route::get('usuario/register','UserController@create')->name('');
 //-----------------------------------------Producto----------------------------------------------------
 
 Route::resource('producto', 'ProductoController');
+Route::resource('laboratorio', 'LaboratorioController');
 
 Route::get('/getAllProductos', 'ProductoController@getAll');
 
