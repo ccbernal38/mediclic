@@ -49,10 +49,11 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data['email'] = $data['email-register'];
         return Validator::make($data, [
             'primer_nombre' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password-register' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -64,21 +65,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data['fecha_nacimiento'] = date('Y-m-d', strtotime($data['fecha_nacimiento']));
         $persona = Persona::create([
-            'tipo_documento' => $data['tipo_documento'],
-            'no_documento' => $data['no_documento'],
             'primer_nombre' => $data['primer_nombre'],
             'segundo_nombre' => $data['primer_nombre'],
             'primer_apellido' => $data['primer_apellido'],
             'segundo_apellido' => $data['segundo_apellido'],
-            'correo' => $data['email'],
+            'correo' => $data['email-register'],
             'sexo' => $data['sexo'],
             'terminos' => $data['terminos'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
         ]);
         return User::create([
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'email' => $data['email-register'],
+            'password' => Hash::make($data['password-register']),
             'persona_id' =>$persona->id,
             'rol_id' => 2
         ]);

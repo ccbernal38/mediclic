@@ -81,4 +81,12 @@ class UserController extends Controller
     {
         //
     }
+
+    /**
+     *
+     */
+    public function createComplete(){
+
+        return view('usuario.register_complete');
+    }
 }

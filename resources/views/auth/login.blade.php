@@ -19,12 +19,6 @@
 
                     <div class="col-md-2">
                         <input id="password" type="password" class="form-control form-control-sm @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Contraseña">
-
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
                     </div>
 
                     <div class="col-md-2 btn-login">
@@ -38,9 +32,15 @@
                     <div class="row padding-input-login">
                         <div class="col-md-4 offset-6">
                             @error('email')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+                            @error('password')
+                                 <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                     </div>
@@ -79,6 +79,7 @@
 
             <form method="POST" action="{{ route('register') }}">
                 <!--Formulario de registro inicial-->
+                @csrf
                 <div class="row padding-row-register">
                     <div class="col-md-6">
                         <div class="form-group position-relative">
@@ -95,7 +96,7 @@
                     <div class="col-md-6">
                         <div class="form-group position-relative">
                             <label for="name" class=" label-register">Segundo Nombre</label>
-                            <input id="segundo_nombre" type="text" class="form-mediclic @error('segundo_nombre') is-invalid @enderror" name="segundo_nombre" value="{{ old('segundo_nombre') }}" required autocomplete="segundo_nombre" autofocus>
+                            <input id="segundo_nombre" type="text" class="form-mediclic @error('segundo_nombre') is-invalid @enderror" name="segundo_nombre" value="{{ old('segundo_nombre') }}" autocomplete="segundo_nombre" autofocus>
                             <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                         </div>
                         @error('segundo_nombre')
@@ -133,10 +134,10 @@
                             <input id="email-register" type="email" class="form-mediclic @error('email-register') is-invalid @enderror" name="email-register" value="{{ old('email-register') }}" required autocomplete="email-register">
                             <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                         </div>
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                        @error('email-register')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
                     </div>
                     <div class="col-md-6">
@@ -169,7 +170,7 @@
                     <div class="col-md-6">
                         <div class="form-group position-relative">
                             <label for="password" class="label-register">{{ __('Password') }}</label>
-                            <input id="passwordR" type="password" class="form-mediclic @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="password-register" type="password" class="form-mediclic @error('password-register') is-invalid @enderror" name="password-register" required autocomplete="new-password">
                             <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                         </div>
                     </div>
@@ -178,7 +179,34 @@
                     <div class="col-md-12">
                         <div class="custom-control custom-radio custom-control-inline" style="width: 100%">
                             <input id="terminos" type="radio" class="custom-control-input @error('terminos') is-invalid @enderror" name="terminos" value="1" required {{ '1' == old('terminos') ? "checked":"" }}>
-                            <label class="custom-control-label conf-lbl-terminos" for="terminos">Acepto terminos y condiciones <a href="" style="color: #abbe2e">(ver)</a></label>
+                            <label class="custom-control-label conf-lbl-terminos" for="terminos">Acepto terminos y condiciones <a href="" style="color: #abbe2e" data-toggle="modal" data-target="#exampleModalLong">(ver)</a></label>
+                            <div class="modal fade bd-example-modal-lg" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Terminos y condiciones</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Autorizo de manera voluntaria, previa, explicita, informada e inequívoca a Puro digital (Mediclic), identifica
+                                            da con NIT No. 900.557.875-3, al tratamiento de mis datos personales, que incluye los derechos que a los
+                                            titulares les asisten y la manera de ejercerlos. Acepto y entiendo que Puro digital (Mediclic), terceros
+                                            contratistas o mandatarios encargados para tal fin actuarán como Responsables del Tratamiento de datos
+                                            personales de los cuales soy Titular. El Tratamiento implica la recolección, almacenamiento, administración,
+                                            utilización, transferencia, transmisión y destrucción de dichos datos. El tratamiento de datos de profesionales
+                                            es requerido para que Puro digital (Mediclic), pueda contactarlos ocasionalmente de manera telefónica,
+                                            electrónica, física o por cualquier otro medio de comunicación, para darles información o brindarles apoyo
+                                            relacionado con la paltaforma. Cualquier petición, consulta, reclamo, queja o requerimiento relacionado con
+                                            la protección de mis datos puede hacerla al correo xxxx o en el teléfono (+57)(1) xxxx.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
