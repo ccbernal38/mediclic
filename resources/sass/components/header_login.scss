@@ -199,6 +199,16 @@ $green-register: #37595a;
     border-color: $green-register !important;
 }
 
+.message-error{
+    font-size: 0.7rem;
+}
+
+.h1-perfil-usuario {
+    font-weight: bold;
+    font-size: 2.3rem;
+    padding-top: 3%;
+}
+
 @media (min-width: 1441px) and (max-width: 1680px){
     .img-logo-inicio{
         height: 180px;

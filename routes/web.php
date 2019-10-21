@@ -23,21 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('register'
 
 Route::get('usuario/register','UserController@create')->name('user_register');
 
-Route::get('usuario/register_complete','UserController@createComplete')->name('user_register_complete');
+Route::get('usuario/register_complete','UserController@createComplete')->name('user_register_complete')->middleware('auth');
 
 //-----------------------------------------Producto----------------------------------------------------
 
 Route::resource('producto', 'ProductoController');
+Route::resource('laboratorio', 'LaboratorioController');
 
 Route::get('/getAllProductos', 'ProductoController@getAll');
-
-//Route::get('ip',function() {
-////   return $_SERVER['REMOTE_ADDR'];
-////    $ipAddress=$_SERVER['REMOTE_ADDR'];
-////    $arp=`arp -a $ipAddress`;
-////    $lines=explode("\n", $arp);
-////    return $lines;
-////    return $_SERVER['HTTP_X_FORWARDED_FOR'];
-//    return Request::getClientIp();
-//});
+Route::get('/getAllLaboratorios', 'LaboratorioController@getAll');
 
