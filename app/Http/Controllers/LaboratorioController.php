@@ -85,4 +85,12 @@ class LaboratorioController extends Controller
     {
         //
     }
+
+    /**
+     * Retorna el listado total de laboratorios del sistema
+     * @return Laboratorio[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getAll(){
+        return Laboratorio::all();
+    }
 }

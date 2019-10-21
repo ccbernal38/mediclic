@@ -29,14 +29,5 @@ Route::resource('producto', 'ProductoController');
 Route::resource('laboratorio', 'LaboratorioController');
 
 Route::get('/getAllProductos', 'ProductoController@getAll');
-
-//Route::get('ip',function() {
-////   return $_SERVER['REMOTE_ADDR'];
-////    $ipAddress=$_SERVER['REMOTE_ADDR'];
-////    $arp=`arp -a $ipAddress`;
-////    $lines=explode("\n", $arp);
-////    return $lines;
-////    return $_SERVER['HTTP_X_FORWARDED_FOR'];
-//    return Request::getClientIp();
-//});
+Route::get('/getAllLaboratorios', 'LaboratorioController@getAll');
 
