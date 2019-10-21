@@ -3,6 +3,7 @@ $orange-color: #d27827;
 $abano-color: #f3edd1;
 $darkblue-color: #37595a;
 $red-color: #bc2128;
+$green-register: #37595a;
 
 .img-header{
     background-image: url("/img/login/header_login.png");
@@ -189,5 +190,31 @@ $red-color: #bc2128;
 }
 
 .pad-row-terminos{
-    padding-top: 4%;
+    padding-top: 2%;
+}
+
+.btn-register1{
+    color: #fff !important;
+    background-color: $green-register !important;
+    border-color: $green-register !important;
+}
+
+@media (min-width: 1441px) and (max-width: 1680px){
+    .img-logo-inicio{
+        height: 180px;
+    }
+
+    .img-inicio {
+        height: 1016px;
+    }
+}
+
+@media (min-width: 1681px) and (max-width: 1920px){
+    .img-logo-inicio{
+        height: 160px;
+    }
+
+    .img-inicio {
+        height: 890px;
+    }
 }

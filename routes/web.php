@@ -17,11 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('register');
 
 //-----------------------------------------Usuario-----------------------------------------------------
 
-Route::get('usuario/register','UserController@create')->name('');
+Route::get('usuario/register','UserController@create')->name('user_register');
+
+Route::get('usuario/register_complete','UserController@createComplete')->name('user_register_complete');
 
 //-----------------------------------------Producto----------------------------------------------------
 
