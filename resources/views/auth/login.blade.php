@@ -88,9 +88,9 @@
                             <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                         </div>
                         @error('primer_nombre')
-                        <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
                     </div>
                     <div class="col-md-6">
@@ -133,12 +133,14 @@
                             <label for="email" class="label-register">{{ __('E-Mail Address') }}</label>
                             <input id="email-register" type="email" class="form-mediclic @error('email-register') is-invalid @enderror" name="email-register" value="{{ old('email-register') }}" required autocomplete="email-register">
                             <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                            @if ($errors->any())
+                                    @error('email-register')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong class="message-error">{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                            @endif
                         </div>
-                        @error('email-register')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
                     <div class="col-md-6">
                         <div class="form-group position-relative">
@@ -147,9 +149,9 @@
                             <span class="form-clear d-none"><i class="material-icons">clear</i></span>
                         </div>
                         @error('fecha_nacimiento')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
                     </div>
                 </div>
@@ -172,6 +174,11 @@
                             <label for="password" class="label-register">{{ __('Password') }}</label>
                             <input id="password-register" type="password" class="form-mediclic @error('password-register') is-invalid @enderror" name="password-register" required autocomplete="new-password">
                             <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                            @error('password-register')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong class="message-error">{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                 </div>

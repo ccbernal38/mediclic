@@ -49,11 +49,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $data['email'] = $data['email-register'];
+
         return Validator::make($data, [
             'primer_nombre' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email-register' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password-register' => ['required', 'string', 'min:8'],
+        ], [
+            'email-register.unique'=>'Ya existe un usuario asociado a este correo electrónico',
+            'password-register.min'=>'La contraseña debe contener minimo 8 caracteres',
+        ],[
+            'email-register' => 'correo electrónico',
+            'password-register' => 'contraseña',
         ]);
     }
 

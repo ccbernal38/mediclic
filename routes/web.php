@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('register'
 
 Route::get('usuario/register','UserController@create')->name('user_register');
 
-Route::get('usuario/register_complete','UserController@createComplete')->name('user_register_complete');
+Route::get('usuario/register_complete','UserController@createComplete')->name('user_register_complete')->middleware('auth');
 
 //-----------------------------------------Producto----------------------------------------------------
 

@@ -27,10 +27,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('login-component', require('./components/LoginComponent.vue').default);
 Vue.component('header-home-component', require('./components/HeaderComponent.vue').default);
 Vue.component('footer-color-component', require('./components/FooterColoresComponent.vue').default);
-
 
 //-----------------Producto-----------------
 Vue.component('producto-registro-component', require('./components/producto/ProductoRegistroComponent.vue').default);
@@ -40,6 +38,10 @@ Vue.component('producto-index-component', require('./components/producto/Product
 //---------------laboratorio----------------
 Vue.component('laboratorio-registro-component', require('./components/laboratorio/LaboratorioRegistroComponent.vue').default);
 Vue.component('laboratorio-index-component', require('./components/laboratorio/LaboratorioIndexComponent.vue').default);
+//------------------------------------------
+
+//---------------Usuarios----------------
+Vue.component('paciente-registro-component', require('./components/usuarios/PacienteRegistroComponent.vue').default);
 //------------------------------------------
 
 /**
