@@ -41,6 +41,22 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label class="label-register" for="imagen">Imagen</label><br>
+                        <div class="row">
+                            <div v-if="imageData.length > 0" class="col-md-4">
+                                <img class="preview" :src="imageData">
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-mediclic-file" id="imagen" type="file" @change="previewImage" accept="image/png">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
                         <label class="label-register" for="nombre_comercial">Nombre comercial</label>
                         <input aria-describedby="nombre_comercial" class="form-mediclic" id="nombre_comercial"
                                v-model="nombre_comercial">
@@ -48,8 +64,6 @@
                         <i class="material-icons">clear</i></span>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="label-register" for="ubicacion">Ubicación</label>
@@ -66,6 +80,10 @@
                         <i class="material-icons">clear</i></span>
                     </div>
                 </div>
+
+            </div>
+            <div class="row">
+
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="label-register" for="concentracion">Concentración</label>
@@ -74,8 +92,6 @@
                         <i class="material-icons">clear</i></span>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="label-register" for="forma_farmaceutica">Forma farmaceutica</label>
@@ -92,39 +108,35 @@
                         <i class="material-icons">clear</i></span>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="label-register" for="laboratorio">Laboratorio</label>
-                        <input class="form-mediclic" id="laboratorio"
-                               v-model="laboratorio"><span class="form-clear d-none">
-                        <i class="material-icons">clear</i></span>
-                    </div>
-                </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label class="label-register" for="imagen">Imagen</label>
-                        <input class="form-mediclic-file" id="imagen" type="file"><span class="form-clear d-none">
-                        <i class="material-icons">clear</i></span>
+                        <label class="label-register" for="laboratorio">Laboratorio</label><br>
+                        <select class="form-mediclic" v-model="laboratorio" id="laboratorio">
+                            <option v-for="option in arrayLabs" v-bind:value="option.id">
+                                {{ option.nombre }}
+                            </option>
+                        </select>
                     </div>
                 </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="offset-8 col-md-4">
                     <div class="row" style="background-color:white;">
                         <div class="offset-9 col-md-3 ">
                             <button @click="save()" class="btn btn-success btn-registro">Registrar</button>
                         </div>
+                        <b-alert
+                            :show="dismissCountDown"
+                            @dismiss-count-down="countDownChanged"
+                            @dismissed="dismissCountDown=0"
+                            dismissible
+                            variant="warning"
+                        >
+                            {{ mensaje }}
+                        </b-alert>
                     </div>
-                    <b-alert
-                        :show="dismissCountDown"
-                        @dismiss-count-down="countDownChanged"
-                        @dismissed="dismissCountDown=0"
-                        dismissible
-                        variant="warning"
-                    >
-                        {{ mensaje }}
-                    </b-alert>
                 </div>
             </div>
 
@@ -136,6 +148,7 @@
 <script>
     export default {
         name: "producto-registro-component",
+        props: ['labs'],
         data() {
             return {
                 codigo: "",
@@ -147,45 +160,78 @@
                 forma_farmaceutica: "",
                 registro_sanitario: "",
                 laboratorio: "",
+                imageData: "",
                 dismissCountDown: 0,
-                mensaje: ""
+                dismissSecs:5,
+                mensaje: "",
+                arrayLabs:[],
             }
         },
         methods: {
+            previewImage: function(event) {
+                // Reference to the DOM input element
+                var input = event.target;
+                // Ensure that you have a file before attempting to read it
+                if (input.files && input.files[0]) {
+                    // create a new FileReader to read this image and convert to base64 format
+                    var reader = new FileReader();
+                    // Define a callback function to run, when FileReader finishes its job
+                    reader.onload = (e) => {
+                        // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
+                        // Read image as base64 and set to imageData
+                        this.imageData = e.target.result;
+                    }
+                    // Start the reader job - read file as a data url (base64 format)
+                    reader.readAsDataURL(input.files[0]);
+                }
+            },
             save() {
-                let me = this;
-                let url = '/producto'; //Ruta que hemos creado para enviar una tarea y guardarla
-                axios.post(url, { //estas variables son las que enviaremos para que crear la tarea
-                    'codigo': this.codigo,
-                    'nombre': this.nombre,
-                    'nombre_comercial': this.nombre_comercial,
-                    'ubicacion': this.ubicacion,
-                    'principio_activo': this.principio_activo,
-                    'concentracion': this.concentracion,
-                    'forma_farmaceutica': this.forma_farmaceutica,
-                    'registro_sanitario': this.registro_sanitario,
-                    'laboratorio_id': this.laboratorio,
-                }).then(function (response) {
-                    me.clearFields();//Limpiamos los campos e inicializamos la variable update a 0
-                    me.showAlert();
-                })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-
+                if (this.laboratorio != ""){
+                    let me = this;
+                    let url = '/producto'; //Ruta que hemos creado para enviar una tarea y guardarla
+                    axios.post(url, { //estas variables son las que enviaremos para que crear la tarea
+                        'codigo': this.codigo,
+                        'nombre': this.nombre,
+                        'nombre_comercial': this.nombre_comercial,
+                        'ubicacion': this.ubicacion,
+                        'principio_activo': this.principio_activo,
+                        'concentracion': this.concentracion,
+                        'forma_farmaceutica': this.forma_farmaceutica,
+                        'registro_sanitario': this.registro_sanitario,
+                        'laboratorio_id': this.laboratorio,
+                        'imagen':this.imageData,
+                    }).then(function (response) {
+                        me.clearFields();
+                        me.showAlert();
+                    }).catch(function (error) {
+                            console.log(error);
+                        });
+                }else {
+                    this.mensaje = "Debe seleccionar un laboratorio"
+                    this.showAlert();
+                }
             },
             clearFields() {/*Limpia los campos e inicializa la variable update a 0*/
+                this.codigo = "";
+                this.nombre = "";
                 this.nombre_comercial = "";
-                this.nombre_generico = "";
-                this.contraindicaciones = "";
-                this.indicaciones = "";
+                this.ubicacion = "";
+                this.principio_activo = "";
+                this.concentracion = "";
+                this.forma_farmaceutica = "";
+                this.registro_sanitario = "";
+                this.laboratorio = "";
+                this.imageData = "";
             },
             countDownChanged(dismissCountDown) {
                 this.dismissCountDown = dismissCountDown
             },
             showAlert() {
                 this.dismissCountDown = this.dismissSecs
-            }
+            },
+        },
+        mounted() {
+                this.arrayLabs = JSON.parse(this.labs);
         }
     }
 </script>
@@ -272,5 +318,4 @@
         border-width: 1px;
         width: 94% !important;
     }
-
 </style>

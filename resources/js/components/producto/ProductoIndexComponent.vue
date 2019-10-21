@@ -42,16 +42,18 @@
                 <tbody>
                     <tr v-for="producto in array" :key="producto.id"> <!--Recorremos el array y cargamos nuestra tabla-->
                         <td v-text="producto.id"></td>
+                        <td v-text="producto.codigo"></td>
+                        <td v-text="producto.nombre"></td>
                         <td v-text="producto.nombre_comercial"></td>
-                        <td v-text="producto.nombre_generico"></td>
-                        <td v-text="producto.indicaciones"></td>
-                        <td v-text="producto.contraindicaciones"></td>
-                        <td>
+                        <td v-text="producto.ubicacion"></td>
+                        <td v-text="producto.registro_sanitario"></td>
+                        <td v-if="producto.laboratorio != null" v-text="producto.laboratorio.nombre"></td>
+<!--                        <td>-->
                             <!--Botón modificar, que carga los datos del formulario con la tarea seleccionada-->
-                            <button class="btn" @click="loadFieldsUpdate(task)">Modificar</button>
+<!--                            <button class="btn" @click="loadFieldsUpdate(task)">Modificar</button>-->
                             <!--Botón que borra la tarea que seleccionemos-->
-                            <button class="btn" @click="deleteTask(task)">Borrar</button>
-                        </td>
+<!--                            <button class="btn" @click="deleteTask(task)">Borrar</button>-->
+<!--                        </td>-->
                     </tr>
                 </tbody>
             </table>

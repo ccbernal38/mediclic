@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Laboratorio;
 use App\Producto;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('producto.registro');
+        $labs = Laboratorio::select('id', 'nombre')->get();
+        return view('producto.registro', compact('labs'));
     }
 
     /**
@@ -86,6 +88,6 @@ class ProductoController extends Controller
     }
 
     public function getAll(){
-        return Producto::all();
+        return Producto::with('laboratorio')->get();
     }
 }

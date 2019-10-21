@@ -2141,6 +2141,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "laboratorio-registro-component",
   data: function data() {
@@ -2156,6 +2162,26 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    previewImage: function previewImage(event) {
+      var _this = this;
+
+      // Reference to the DOM input element
+      var input = event.target; // Ensure that you have a file before attempting to read it
+
+      if (input.files && input.files[0]) {
+        // create a new FileReader to read this image and convert to base64 format
+        var reader = new FileReader(); // Define a callback function to run, when FileReader finishes its job
+
+        reader.onload = function (e) {
+          // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
+          // Read image as base64 and set to imageData
+          _this.logo = e.target.result;
+        }; // Start the reader job - read file as a data url (base64 format)
+
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    },
     save: function save() {
       var me = this;
       var url = '/laboratorio'; //Ruta que hemos creado para enviar una tarea y guardarla
@@ -2206,6 +2232,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2443,8 +2471,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "producto-registro-component",
+  props: ['labs'],
   data: function data() {
     return {
       codigo: "",
@@ -2456,40 +2497,74 @@ __webpack_require__.r(__webpack_exports__);
       forma_farmaceutica: "",
       registro_sanitario: "",
       laboratorio: "",
+      imageData: "",
       dismissCountDown: 0,
-      mensaje: ""
+      dismissSecs: 5,
+      mensaje: "",
+      arrayLabs: []
     };
   },
   methods: {
+    previewImage: function previewImage(event) {
+      var _this = this;
+
+      // Reference to the DOM input element
+      var input = event.target; // Ensure that you have a file before attempting to read it
+
+      if (input.files && input.files[0]) {
+        // create a new FileReader to read this image and convert to base64 format
+        var reader = new FileReader(); // Define a callback function to run, when FileReader finishes its job
+
+        reader.onload = function (e) {
+          // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
+          // Read image as base64 and set to imageData
+          _this.imageData = e.target.result;
+        }; // Start the reader job - read file as a data url (base64 format)
+
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    },
     save: function save() {
-      var me = this;
-      var url = '/producto'; //Ruta que hemos creado para enviar una tarea y guardarla
+      if (this.laboratorio != "") {
+        var me = this;
+        var url = '/producto'; //Ruta que hemos creado para enviar una tarea y guardarla
 
-      axios.post(url, {
-        //estas variables son las que enviaremos para que crear la tarea
-        'codigo': this.codigo,
-        'nombre': this.nombre,
-        'nombre_comercial': this.nombre_comercial,
-        'ubicacion': this.ubicacion,
-        'principio_activo': this.principio_activo,
-        'concentracion': this.concentracion,
-        'forma_farmaceutica': this.forma_farmaceutica,
-        'registro_sanitario': this.registro_sanitario,
-        'laboratorio_id': this.laboratorio
-      }).then(function (response) {
-        me.clearFields(); //Limpiamos los campos e inicializamos la variable update a 0
-
-        me.showAlert();
-      })["catch"](function (error) {
-        console.log(error);
-      });
+        axios.post(url, {
+          //estas variables son las que enviaremos para que crear la tarea
+          'codigo': this.codigo,
+          'nombre': this.nombre,
+          'nombre_comercial': this.nombre_comercial,
+          'ubicacion': this.ubicacion,
+          'principio_activo': this.principio_activo,
+          'concentracion': this.concentracion,
+          'forma_farmaceutica': this.forma_farmaceutica,
+          'registro_sanitario': this.registro_sanitario,
+          'laboratorio_id': this.laboratorio,
+          'imagen': this.imageData
+        }).then(function (response) {
+          me.clearFields();
+          me.showAlert();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        this.mensaje = "Debe seleccionar un laboratorio";
+        this.showAlert();
+      }
     },
     clearFields: function clearFields() {
       /*Limpia los campos e inicializa la variable update a 0*/
+      this.codigo = "";
+      this.nombre = "";
       this.nombre_comercial = "";
-      this.nombre_generico = "";
-      this.contraindicaciones = "";
-      this.indicaciones = "";
+      this.ubicacion = "";
+      this.principio_activo = "";
+      this.concentracion = "";
+      this.forma_farmaceutica = "";
+      this.registro_sanitario = "";
+      this.laboratorio = "";
+      this.imageData = "";
     },
     countDownChanged: function countDownChanged(dismissCountDown) {
       this.dismissCountDown = dismissCountDown;
@@ -2497,6 +2572,9 @@ __webpack_require__.r(__webpack_exports__);
     showAlert: function showAlert() {
       this.dismissCountDown = this.dismissSecs;
     }
+  },
+  mounted: function mounted() {
+    this.arrayLabs = JSON.parse(this.labs);
   }
 });
 
@@ -35132,7 +35210,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.panel[data-v-1794a2f4] {\n    background-color: #f2f2f2;\n}\n.img-producto[data-v-1794a2f4] {\n    background-image: url(\"/img/icon/producto.png\");\n}\n.img-proveedores[data-v-1794a2f4] {\n    background-image: url(\"/img/icon/proveedores.png\");\n}\nimg[data-v-1794a2f4] {\n    width: 100%;\n    background-size: cover;\n}\n.buscar[data-v-1794a2f4] {\n    width: 90%;\n    display: block;\n    height: 40%;\n}\n.containerBuscar[data-v-1794a2f4] {\n    display: flex;\n    align-items: center;\n}\n.container-fluid > div > div[data-v-1794a2f4] {\n    padding: 0px;\n}\n.buscar[data-v-1794a2f4] {\n    border-color: black;\n    border-width: 1px;\n    border-radius: 10px;\n    padding-left: 2%;\n    font-weight: bold;\n    background-color: #f2f2f2;\n}\n[data-v-1794a2f4]::-webkit-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]:-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]::-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]:-ms-input-placeholder { /* Internet Explorer 10-11 */\n    color: #cccccc;\n}\n[data-v-1794a2f4]::-ms-input-placeholder { /* Microsoft Edge */\n    color: #cccccc;\n}\n.form-mediclic[data-v-1794a2f4] {\n    width: 90%;\n}\n.btn-registro[data-v-1794a2f4] {\n    margin-bottom: 1vw;\n}\n.container-fluid > div[data-v-1794a2f4] {\n    width: 100%;\n}\n.row[data-v-1794a2f4]{\n    width: 100%;\n}\n.registro[data-v-1794a2f4] {\n    background-color: white;\n    padding-top: 3%;\n    padding-left: 4%;\n    padding-right: 4%;\n    margin: 3%;\n    border-radius: 10px;\n    border-color: black;\n    border-style: solid;\n    border-width: 1px;\n    width: 94% !important;\n}\n\n", ""]);
+exports.push([module.i, "\n.panel[data-v-1794a2f4] {\n    background-color: #f2f2f2;\n}\n.img-producto[data-v-1794a2f4] {\n    background-image: url(\"/img/icon/producto.png\");\n}\n.img-proveedores[data-v-1794a2f4] {\n    background-image: url(\"/img/icon/proveedores.png\");\n}\nimg[data-v-1794a2f4] {\n    width: 100%;\n    background-size: cover;\n}\n.buscar[data-v-1794a2f4] {\n    width: 90%;\n    display: block;\n    height: 40%;\n}\n.containerBuscar[data-v-1794a2f4] {\n    display: flex;\n    align-items: center;\n}\n.container-fluid > div > div[data-v-1794a2f4] {\n    padding: 0px;\n}\n.buscar[data-v-1794a2f4] {\n    border-color: black;\n    border-width: 1px;\n    border-radius: 10px;\n    padding-left: 2%;\n    font-weight: bold;\n    background-color: #f2f2f2;\n}\n[data-v-1794a2f4]::-webkit-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]:-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]::-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: #cccccc;\n    opacity: 1; /* Firefox */\n}\n[data-v-1794a2f4]:-ms-input-placeholder { /* Internet Explorer 10-11 */\n    color: #cccccc;\n}\n[data-v-1794a2f4]::-ms-input-placeholder { /* Microsoft Edge */\n    color: #cccccc;\n}\n.form-mediclic[data-v-1794a2f4] {\n    width: 90%;\n}\n.btn-registro[data-v-1794a2f4] {\n    margin-bottom: 1vw;\n}\n.container-fluid > div[data-v-1794a2f4] {\n    width: 100%;\n}\n.row[data-v-1794a2f4]{\n    width: 100%;\n}\n.registro[data-v-1794a2f4] {\n    background-color: white;\n    padding-top: 3%;\n    padding-left: 4%;\n    padding-right: 4%;\n    margin: 3%;\n    border-radius: 10px;\n    border-color: black;\n    border-style: solid;\n    border-width: 1px;\n    width: 94% !important;\n}\n", ""]);
 
 // exports
 
@@ -67734,7 +67812,35 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(3)
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              { staticClass: "label-register", attrs: { for: "logo" } },
+              [_vm._v("Logo")]
+            ),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _vm.logo.length > 0
+                ? _c("div", { staticClass: "col-md-4" }, [
+                    _c("img", {
+                      staticClass: "preview",
+                      attrs: { src: _vm.logo }
+                    })
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" }, [
+                _c("input", {
+                  staticClass: "form-mediclic-file",
+                  attrs: { id: "logo", type: "file", accept: "image/png" },
+                  on: { change: _vm.previewImage }
+                })
+              ])
+            ])
+          ])
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
@@ -67768,7 +67874,7 @@ var render = function() {
                 }
               }
             }),
-            _vm._m(4)
+            _vm._m(3)
           ])
         ]),
         _vm._v(" "),
@@ -67802,7 +67908,7 @@ var render = function() {
                 }
               }
             }),
-            _vm._m(5)
+            _vm._m(4)
           ])
         ]),
         _vm._v(" "),
@@ -67836,7 +67942,7 @@ var render = function() {
                 }
               }
             }),
-            _vm._m(6)
+            _vm._m(5)
           ])
         ])
       ]),
@@ -67954,27 +68060,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { staticClass: "label-register", attrs: { for: "logo" } }, [
-          _vm._v("Logo")
-        ]),
-        _c("br"),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-mediclic-file",
-          attrs: { id: "logo", type: "file" }
-        }),
-        _c("span", { staticClass: "form-clear d-none" }, [
-          _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("span", { staticClass: "form-clear d-none" }, [
       _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
     ])
@@ -68034,49 +68119,29 @@ var render = function() {
             return _c("tr", { key: producto.id }, [
               _c("td", { domProps: { textContent: _vm._s(producto.id) } }),
               _vm._v(" "),
+              _c("td", { domProps: { textContent: _vm._s(producto.codigo) } }),
+              _vm._v(" "),
+              _c("td", { domProps: { textContent: _vm._s(producto.nombre) } }),
+              _vm._v(" "),
               _c("td", {
                 domProps: { textContent: _vm._s(producto.nombre_comercial) }
               }),
               _vm._v(" "),
               _c("td", {
-                domProps: { textContent: _vm._s(producto.nombre_generico) }
+                domProps: { textContent: _vm._s(producto.ubicacion) }
               }),
               _vm._v(" "),
               _c("td", {
-                domProps: { textContent: _vm._s(producto.indicaciones) }
+                domProps: { textContent: _vm._s(producto.registro_sanitario) }
               }),
               _vm._v(" "),
-              _c("td", {
-                domProps: { textContent: _vm._s(producto.contraindicaciones) }
-              }),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn",
-                    on: {
-                      click: function($event) {
-                        return _vm.loadFieldsUpdate(_vm.task)
-                      }
+              producto.laboratorio != null
+                ? _c("td", {
+                    domProps: {
+                      textContent: _vm._s(producto.laboratorio.nombre)
                     }
-                  },
-                  [_vm._v("Modificar")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn",
-                    on: {
-                      click: function($event) {
-                        return _vm.deleteTask(_vm.task)
-                      }
-                    }
-                  },
-                  [_vm._v("Borrar")]
-                )
-              ])
+                  })
+                : _vm._e()
             ])
           }),
           0
@@ -68259,6 +68324,38 @@ var render = function() {
           _c("div", { staticClass: "form-group" }, [
             _c(
               "label",
+              { staticClass: "label-register", attrs: { for: "imagen" } },
+              [_vm._v("Imagen")]
+            ),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _vm.imageData.length > 0
+                ? _c("div", { staticClass: "col-md-4" }, [
+                    _c("img", {
+                      staticClass: "preview",
+                      attrs: { src: _vm.imageData }
+                    })
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" }, [
+                _c("input", {
+                  staticClass: "form-mediclic-file",
+                  attrs: { id: "imagen", type: "file", accept: "image/png" },
+                  on: { change: _vm.previewImage }
+                })
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
               {
                 staticClass: "label-register",
                 attrs: { for: "nombre_comercial" }
@@ -68293,10 +68390,8 @@ var render = function() {
             _vm._v(" "),
             _vm._m(3)
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c(
@@ -68364,8 +68459,10 @@ var render = function() {
             }),
             _vm._m(5)
           ])
-        ]),
-        _vm._v(" "),
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c(
@@ -68400,10 +68497,8 @@ var render = function() {
             }),
             _vm._m(6)
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c(
@@ -68474,8 +68569,10 @@ var render = function() {
             }),
             _vm._m(8)
           ])
-        ]),
-        _vm._v(" "),
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "form-group" }, [
             _c(
@@ -68483,92 +68580,103 @@ var render = function() {
               { staticClass: "label-register", attrs: { for: "laboratorio" } },
               [_vm._v("Laboratorio")]
             ),
+            _c("br"),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.laboratorio,
-                  expression: "laboratorio"
-                }
-              ],
-              staticClass: "form-mediclic",
-              attrs: { id: "laboratorio" },
-              domProps: { value: _vm.laboratorio },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.laboratorio,
+                    expression: "laboratorio"
                   }
-                  _vm.laboratorio = $event.target.value
+                ],
+                staticClass: "form-mediclic",
+                attrs: { id: "laboratorio" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.laboratorio = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
                 }
-              }
-            }),
-            _vm._m(9)
+              },
+              _vm._l(_vm.arrayLabs, function(option) {
+                return _c("option", { domProps: { value: option.id } }, [
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(option.nombre) +
+                      "\n                        "
+                  )
+                ])
+              }),
+              0
+            )
           ])
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _vm._m(10),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-md-4" },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "row",
-                staticStyle: { "background-color": "white" }
-              },
-              [
-                _c("div", { staticClass: "offset-9 col-md-3 " }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-success btn-registro",
-                      on: {
-                        click: function($event) {
-                          return _vm.save()
-                        }
+        _c("div", { staticClass: "offset-8 col-md-4" }, [
+          _c(
+            "div",
+            {
+              staticClass: "row",
+              staticStyle: { "background-color": "white" }
+            },
+            [
+              _c("div", { staticClass: "offset-9 col-md-3 " }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success btn-registro",
+                    on: {
+                      click: function($event) {
+                        return _vm.save()
                       }
-                    },
-                    [_vm._v("Registrar")]
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "b-alert",
-              {
-                attrs: {
-                  show: _vm.dismissCountDown,
-                  dismissible: "",
-                  variant: "warning"
-                },
-                on: {
-                  "dismiss-count-down": _vm.countDownChanged,
-                  dismissed: function($event) {
-                    _vm.dismissCountDown = 0
-                  }
-                }
-              },
-              [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.mensaje) +
-                    "\n                "
+                    }
+                  },
+                  [_vm._v("Registrar")]
                 )
-              ]
-            )
-          ],
-          1
-        )
+              ]),
+              _vm._v(" "),
+              _c(
+                "b-alert",
+                {
+                  attrs: {
+                    show: _vm.dismissCountDown,
+                    dismissible: "",
+                    variant: "warning"
+                  },
+                  on: {
+                    "dismiss-count-down": _vm.countDownChanged,
+                    dismissed: function($event) {
+                      _vm.dismissCountDown = 0
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.mensaje) +
+                      "\n                    "
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ])
       ])
     ])
   ])
@@ -68669,36 +68777,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "form-clear d-none" }, [
       _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "form-clear d-none" }, [
-      _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "label",
-          { staticClass: "label-register", attrs: { for: "imagen" } },
-          [_vm._v("Imagen")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-mediclic-file",
-          attrs: { id: "imagen", type: "file" }
-        }),
-        _c("span", { staticClass: "form-clear d-none" }, [
-          _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
-        ])
-      ])
     ])
   }
 ]
