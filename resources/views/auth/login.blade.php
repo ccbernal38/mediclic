@@ -64,18 +64,24 @@
     <!--Imagen de inicio y formulario de registro-->
     <div class="row">
         <!--Imagen de inicio-->
-        <div class="col-md-6 col-lg-6 col-sm-6 img-inicio"></div>
+        <div class="col-md-6 img-inicio"></div>
 
         <!--Formulario de registro paciente-->
         <div class="col-md-6 padding-register1">
+
+            <!--Logo mediclic-->
             <div class="row">
-                <div class="offset-3 col-md-6 col-lg-6 col-sm-6 img-logo-inicio"></div>
+                <div class="offset-3 col-md-6 img-logo-inicio"></div>
             </div>
+
+            <!--titulo registro-->
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="h1-registro">Registro</h1>
                 </div>
             </div>
+
+            <!---->
 
             <form method="POST" action="{{ route('register') }}">
                 <!--Formulario de registro inicial-->

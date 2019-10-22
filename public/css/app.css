@@ -10859,6 +10859,16 @@ a.text-dark:focus {
   }
 }
 
+@media (min-width: 1441px) and (max-width: 1680px) {
+  .img-logo-inicio {
+    height: 160px;
+  }
+
+  .img-inicio {
+    height: 790px;
+  }
+}
+
 @media (min-width: 1681px) and (max-width: 1920px) {
   .img-logo-inicio {
     height: 160px;
