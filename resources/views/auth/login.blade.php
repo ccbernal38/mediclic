@@ -81,11 +81,27 @@
                 </div>
             </div>
 
-            <!---->
-
             <form method="POST" action="{{ route('register') }}">
                 <!--Formulario de registro inicial-->
-                @csrf
+            @csrf
+                <!--Seleccion de perfil-->
+                <div class="row">
+                    <div class="col-md-2 offset-1 aling-vertically">
+                        <input type="radio" id="terapeuta-img" class="custom-control-input @error('perfil') is-invalid @enderror" name="perfil" value="0" required>
+                        <label for="terapeuta-img" id="img-check"><img src="/img/login/terapeuta.png" alt=""></label>
+                    </div>
+                    <div class="col-md-2 aling-vertically">
+                        <h4 class="h3-aling-v">Terapeuta</h4>
+                    </div>
+                    <div class="col-md-2 offset-1 aling-vertically">
+                        <input type="radio" id="paciente-img" class="custom-control-input @error('perfil') is-invalid @enderror" name="perfil" value="1" required>
+                        <label for="paciente-img" id="img-check"><img src="/img/login/paciente.png" alt=""></label>
+                    </div>
+                    <div class="col-md-2 aling-vertically">
+                        <h4 class="h3-aling-v">Paciente</h4>
+                    </div>
+                </div>
+
                 <div class="row padding-row-register">
                     <div class="col-md-6">
                         <div class="form-group position-relative">

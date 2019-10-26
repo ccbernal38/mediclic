@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password','condicion','rol_id','persona_id'
+        'email', 'password','condicion','persona_id'
     ];
 
     /**
@@ -39,11 +39,28 @@ class User extends Authenticatable
 
     public $timestamps = false;
 
-    public function rol(){
-        return $this->belongsTo('App\Rol','rol_id');
+    public function roles(){
+        return $this->belongsToMany(Rol::class, 'assigned_roles', 'user_id','role_id');
     }
 
     public function persona(){
-        return $this->belongsTo('App\Persona', 'id');
+        return $this->belongsTo(Persona::class, 'id');
+    }
+
+    /**
+     * Metodo que verifica si el rol actual de la sesion equivale
+     * a uno de los roles que se pasa por parametro
+     * @param array $roles roles a los ue el usuario puede acceder
+     * @return bool true si el rol actual conincide con los parametros, false si no es compatible
+     */
+    public function hasRoles(Array $roles){
+
+        foreach ($roles as $role){
+            if($role === $this->role->nombre){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 }

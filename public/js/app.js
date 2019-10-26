@@ -2530,10 +2530,11 @@ __webpack_require__.r(__webpack_exports__);
   props: ['user'],
   data: function data() {
     return {
-      primer_nombre: JSON.parse(this.user).persona_id
+      primer_nombre: this.user
     };
   },
-  mounted: function mounted() {// this.object = JSON.parse(this.user);
+  mounted: function mounted() {
+    console.log(this.primer_nombre);
   }
 });
 
@@ -81773,8 +81774,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/mediclic/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/mediclic/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Desarrollo\PhpstormProjects\mediclic\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Desarrollo\PhpstormProjects\mediclic\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

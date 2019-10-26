@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-5">
-
+                <!--<p>{{ user.id }}</p>-->
             </div>
             <div class="col-md-6">
                 <div class="row">
@@ -37,11 +37,11 @@
         props: ['user'],
         data(){
             return{
-                primer_nombre: JSON.parse(this.user).persona_id,
+                primer_nombre: (this.user),
             }
         },
         mounted() {
-            // this.object = JSON.parse(this.user);
+            console.log(this.primer_nombre);
         }
     }
 </script>
