@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\AssignedRole;
 use App\Persona;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -54,9 +55,11 @@ class RegisterController extends Controller
             'primer_nombre' => ['required', 'string', 'max:255'],
             'email-register' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password-register' => ['required', 'string', 'min:8'],
+            'perfil' => ['required']
         ], [
             'email-register.unique'=>'Ya existe un usuario asociado a este correo electrónico',
             'password-register.min'=>'La contraseña debe contener minimo 8 caracteres',
+            'perfil.required'=>'Debe seleccionar un perfil de registro, Terapeuta o Paciente.'
         ],[
             'email-register' => 'correo electrónico',
             'password-register' => 'contraseña',
@@ -82,10 +85,15 @@ class RegisterController extends Controller
             'terminos' => $data['terminos'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
         ]);
-        return User::create([
+        $usuario = User::create([
             'email' => $data['email-register'],
             'password' => Hash::make($data['password-register']),
             'persona_id' =>$persona->id,
         ]);
+        $role = AssignedRole::create([
+            'user_id' => $usuario->id,
+            'role_id' => $data['perfil'],
+        ]);
+        return $usuario;
     }
 }
