@@ -40,6 +40,15 @@ Vue.component('laboratorio-registro-component', require('./components/laboratori
 Vue.component('laboratorio-index-component', require('./components/laboratorio/LaboratorioIndexComponent.vue').default);
 //------------------------------------------
 
+//---------------terapeuta----------------
+Vue.component('terapeuta-index-component', require('./components/terapeuta/TerapeutaIndexComponent.vue').default);
+//------------------------------------------
+
+//---------------formula--------------------
+Vue.component('formula-registro-component', require('./components/formula/FormulaRegistroComponent.vue').default);
+Vue.component('formula-header-component', require('./components/formula/HeaderFormulaComponent.vue').default);
+//------------------------------------------
+
 //---------------Usuarios----------------
 Vue.component('paciente-registro-component', require('./components/usuarios/PacienteRegistroComponent.vue').default);
 //------------------------------------------

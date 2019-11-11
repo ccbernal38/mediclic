@@ -14,7 +14,6 @@ class AddEstadoRegistroToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-
             $table->boolean('estado_registro')->default(0);
         });
     }

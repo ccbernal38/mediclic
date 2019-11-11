@@ -25,6 +25,8 @@ Route::get('usuario/register','UserController@create')->name('user_register');
 
 Route::get('usuario/register_complete','UserController@createComplete')->name('user_register_complete')->middleware('auth');
 
+Route::get('terapeuta', 'UserController@index');
+Route::get('terapeuta/formula', 'FormulaController@index');
 //-----------------------------------------Producto----------------------------------------------------
 
 Route::resource('producto', 'ProductoController');
