@@ -4,7 +4,7 @@
             <div class="offset-1 col-md-10 panel">
                 <div class="row">
                     <div class="col-md-4">
-                        <a href="">
+                        <a href="/terapeuta/formula">
                             <img src="/img/icon/funciones-80.png" alt="">
                         </a>
                     </div>

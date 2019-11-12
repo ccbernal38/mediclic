@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c7f4d4e-125d-4993-a570-0e10148f0dca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Formula.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/formula/FormulaRegistroComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/formula/HeaderFormulaComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/terapeuta/TerapeutaIndexComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/formula/registro.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/terapeuta/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_18_205639_add_estado_registro_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_18_205639_add_estado_registro_to_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/laboratorio/LaboratorioIndexComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/laboratorio/LaboratorioIndexComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/laboratorio/LaboratorioRegistroComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/laboratorio/LaboratorioRegistroComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/producto/ProductoIndexComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/producto/ProductoIndexComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/producto/ProductoRegistroComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/producto/ProductoRegistroComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/formula/FormulaRegistroComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/formula/FormulaRegistroComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/terapeuta/TerapeutaIndexComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/terapeuta/TerapeutaIndexComponent.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +208,7 @@
       <workItem from="1572547875675" duration="716000" />
       <workItem from="1572622113586" duration="849000" />
       <workItem from="1572623473183" duration="8991000" />
-      <workItem from="1573489515086" duration="5992000" />
+      <workItem from="1573489515086" duration="12093000" />
     </task>
     <task id="LOCAL-00001" summary="Creación de migraciones, modelos y controladores autenticación y roles">
       <created>1568854230093</created>
