@@ -53,13 +53,16 @@ class RegisterController extends Controller
 
         return Validator::make($data, [
             'primer_nombre' => ['required', 'string', 'max:255'],
-            'email-register' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'primer_apellido' => ['required', 'string', 'max:255'],
+            'email-register' => ['required', 'string', 'email', 'max:255', 'unique:users,email', 'regex:/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/'],
             'password-register' => ['required', 'string', 'min:8'],
-            'perfil' => ['required']
+            'perfil' => ['required'],
+            'sexo'=>['required']
         ], [
             'email-register.unique'=>'Ya existe un usuario asociado a este correo electrónico',
             'password-register.min'=>'La contraseña debe contener minimo 8 caracteres',
-            'perfil.required'=>'Debe seleccionar un perfil de registro, Terapeuta o Paciente.'
+            'perfil.required'=>'Debe seleccionar un perfil de registro, Terapeuta o Paciente.',
+            'email-register'=>'Formato de correo electrónico incorrecto'
         ],[
             'email-register' => 'correo electrónico',
             'password-register' => 'contraseña',
@@ -77,7 +80,7 @@ class RegisterController extends Controller
         $data['fecha_nacimiento'] = date('Y-m-d', strtotime($data['fecha_nacimiento']));
         $persona = Persona::create([
             'primer_nombre' => $data['primer_nombre'],
-            'segundo_nombre' => $data['primer_nombre'],
+            'segundo_nombre' => $data['segundo_nombre'],
             'primer_apellido' => $data['primer_apellido'],
             'segundo_apellido' => $data['segundo_apellido'],
             'correo' => $data['email-register'],

@@ -2525,16 +2525,66 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "paciente-registro-component",
   props: ['user'],
   data: function data() {
     return {
-      primer_nombre: this.user
+      primer_nombre: this.user.primer_nombre,
+      segundo_nombre: this.user.segundo_nombre,
+      primer_apellido: this.user.primer_apellido,
+      segundo_apellido: this.user.segundo_apellido
     };
   },
   mounted: function mounted() {
-    console.log(this.primer_nombre);
+    console.log(this.user);
   }
 });
 
@@ -68771,8 +68821,7 @@ var render = function() {
                   type: "text",
                   name: "primer_nombre",
                   required: "",
-                  autocomplete: "primer_nombre",
-                  autofocus: ""
+                  autocomplete: "primer_nombre"
                 },
                 domProps: { value: _vm.primer_nombre },
                 on: {
@@ -68789,8 +68838,144 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(2)
-        ])
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group position-relative" }, [
+              _c(
+                "label",
+                {
+                  staticClass: " label-register",
+                  attrs: { for: "segundo_nombre" }
+                },
+                [_vm._v("Segundo Nombre")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.segundo_nombre,
+                    expression: "segundo_nombre"
+                  }
+                ],
+                staticClass:
+                  "form-mediclic @error('segundo_nombre') is-invalid @enderror",
+                attrs: {
+                  id: "segundo_nombre",
+                  type: "text",
+                  name: "segundo_nombre",
+                  autocomplete: "segundo_nombre"
+                },
+                domProps: { value: _vm.segundo_nombre },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.segundo_nombre = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group position-relative" }, [
+              _c(
+                "label",
+                {
+                  staticClass: " label-register",
+                  attrs: { for: "primer_apellido" }
+                },
+                [_vm._v("Primer Apellido")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.primer_apellido,
+                    expression: "primer_apellido"
+                  }
+                ],
+                staticClass:
+                  "form-mediclic @error('primer_apellido') is-invalid @enderror",
+                attrs: {
+                  id: "primer_apellido",
+                  type: "text",
+                  name: "primer_apellido",
+                  required: "",
+                  autocomplete: "primer_apellido"
+                },
+                domProps: { value: _vm.primer_apellido },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.primer_apellido = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(3)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group position-relative" }, [
+              _c(
+                "label",
+                {
+                  staticClass: " label-register",
+                  attrs: { for: "segundo_apellido" }
+                },
+                [_vm._v("Segundo Apellido")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.segundo_apellido,
+                    expression: "segundo_apellido"
+                  }
+                ],
+                staticClass:
+                  "form-mediclic @error('segundo_apellido') is-invalid @enderror",
+                attrs: {
+                  id: "segundo_apellido",
+                  type: "text",
+                  name: "segundo_apellido",
+                  required: "",
+                  autocomplete: "segundo_apellido",
+                  autofocus: ""
+                },
+                domProps: { value: _vm.segundo_apellido },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.segundo_apellido = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(4)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _vm._m(6)
       ])
     ])
   ])
@@ -68820,29 +69005,142 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("div", { staticClass: "form-group position-relative" }, [
-        _c(
-          "label",
-          { staticClass: " label-register", attrs: { for: "segundo_nombre" } },
-          [_vm._v("Segundo Nombre")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass:
-            "form-mediclic @error('segundo_nombre') is-invalid @enderror",
-          attrs: {
-            id: "segundo_nombre",
-            type: "text",
-            name: "segundo_nombre",
-            value: "",
-            autocomplete: "segundo_nombre",
-            autofocus: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "form-clear d-none" }, [
-          _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
+    return _c("span", { staticClass: "form-clear d-none" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "form-clear d-none" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "form-clear d-none" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "form-group position-relative" }, [
+          _c("label", { staticClass: "label-register" }, [
+            _vm._v("Correo electrónico")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass:
+              "form-mediclic @error('email-register') is-invalid @enderror",
+            attrs: {
+              id: "email-register",
+              type: "email",
+              name: "email-register",
+              required: "",
+              autocomplete: "email-register"
+            }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "form-clear d-none" }, [
+            _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "form-group position-relative" }, [
+          _c("label", { staticClass: "label-register" }, [
+            _vm._v("Fecha de nacimiento")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass:
+              "form-mediclic datepicker @error('fecha_nacimiento') is-invalid @enderror",
+            attrs: {
+              id: "fecha_nacimiento",
+              type: "text",
+              name: "fecha_nacimiento",
+              required: "",
+              autocomplete: "off",
+              autofocus: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "form-clear d-none" }, [
+            _c("i", { staticClass: "material-icons" }, [_vm._v("clear")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "form-group position-relative" }, [
+          _c("label", { staticClass: "label-register padd-lbl-sexo" }, [
+            _vm._v("Sexo")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "custom-control custom-radio custom-control-inline"
+            },
+            [
+              _c("input", {
+                staticClass: "custom-control-input",
+                attrs: {
+                  id: "f",
+                  type: "radio",
+                  name: "sexo",
+                  value: "F",
+                  required: ""
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                { staticClass: "custom-control-label", attrs: { for: "f" } },
+                [_vm._v("F")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "custom-control custom-radio custom-control-inline"
+            },
+            [
+              _c("input", {
+                staticClass: "custom-control-input",
+                attrs: {
+                  id: "m",
+                  type: "radio",
+                  name: "sexo",
+                  value: "M",
+                  required: ""
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                { staticClass: "custom-control-label", attrs: { for: "m" } },
+                [_vm._v("M")]
+              )
+            ]
+          )
         ])
       ])
     ])
